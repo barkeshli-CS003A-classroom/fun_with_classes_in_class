@@ -1,5 +1,16 @@
 
 # Work Report
+Added operators to counter.
+the extraction operator is used to explain extracting Rational
+object. Will not work for counter.
+
+Problem with 
+    //same thing, strange syntax
+    // why doesn't this work? 
+    //operator<<(operator<<(cout, c4), endl);
+in main.cpp. Figure out what happened.
+
+
 
 ## Name: <ins> your name goes here </ins>
 

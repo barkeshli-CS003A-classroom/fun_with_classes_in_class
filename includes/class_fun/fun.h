@@ -14,14 +14,22 @@ public:
   //mutators:
   void inc();
   void dec();
-
-  //accessors:
+  void add(Counter other);
+  Counter add(const Counter &left, const Counter &right);
+  friend Counter add(const Counter &left, const Counter &right);
+  friend Counter operator+(const Counter &left, const Counter &right);
+  friend Counter operator-(const Counter &left, const Counter &right);
+  friend Counter operator*(const Counter &left, int m);
+  friend ostream& operator<<(ostream& outs, const Counter& c);
+  friend istream& operator>>(istream& ins, Counter& c);
+  
+  // accessors:
   int count();
   void print();
 
 private:
   int _count;
-
+  int fake;
 };
 
 #endif // BARKESHLI__FUN_H__
