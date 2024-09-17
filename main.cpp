@@ -17,6 +17,10 @@ int main(int argv, char** argc) {
     Counter c1(10);
     Counter c2(5);
 
+    cout << "\n\n\n=====================" << endl;
+    return 0;
+}
+void operators(){
     //do not like the one arg add function.
     //  not intuitive
     c1.add(c2);
@@ -52,8 +56,6 @@ int main(int argv, char** argc) {
     
     c4 = c3 - c2;
     cout << "c4 is now: " <<c4 << endl;
-    cout << "\n\n\n=====================" << endl;
-    return 0;
 }
 void fun_with_classes(){
     Counter c1;
