@@ -29,7 +29,7 @@ public:
 
 private:
   int _count;
-  int fake;
+  int _error;
 };
 
 #endif // BARKESHLI__FUN_H__

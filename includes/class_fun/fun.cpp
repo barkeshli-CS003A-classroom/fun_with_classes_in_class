@@ -1,17 +1,23 @@
 #include "fun.h"
+//===========================================================
+//                  C T O R S
+//===========================================================
 
   Counter::Counter(){
     bool debug = false;
     if (debug)
       cout << "Counter() fired" << endl;
     _count = 0;
+    _error = 0;
   }
-  Counter::Counter(int c):_count(c){
+  Counter::Counter(int c):_count(c),_error(0){
     bool debug = false;
     if (debug)
       cout << "Counter("<<c<<") fired" << endl;
     //blank!
   }
+
+
   //mutators:
   void Counter::inc(){
     bool debug = false;
@@ -39,6 +45,7 @@
       cout << "print() fired" << endl;
     cout <<setw(3)<< _count<<" ";
   }
+//================ add() variations: ====================================
 
   void Counter::add(Counter other){
     //other's _count is private, but is accessible to 'me' in 
@@ -107,7 +114,7 @@ Counter operator*(const Counter &left, int m){
 
 ostream& operator<<(ostream& outs, const Counter& c){
 
-  outs << '['<<setw(4)<<setfill('0')<<c._count<<" ]";
+  outs << '['<<setw(4)<<setfill('0')<<c._count<<", "<<c._error<<" ]";
   return outs;
 }
 
@@ -115,6 +122,6 @@ ostream& operator<<(ostream& outs, const Counter& c){
 istream& operator>>(istream& ins, Counter& c){
   //    > 5/8
   char junk;
-  ins >> c._count >> junk >> c.fake;
+  ins >> c._count >> junk >> c._error;
   return ins;
 }

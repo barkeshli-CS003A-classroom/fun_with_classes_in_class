@@ -1,5 +1,20 @@
+## Name: <ins> Barkeshli </ins>
 
 # Work Report
+The Big 3 Lecture:
+
+shows default copy ctor and assignment operator:
+bogus(): i: 6,j: 12
+enter c1: 17, -5
+[0017, -5 ]  [0005, 0 ]
+c3: [0017, -5 ], c4: [0017, -5 ]
+c5: [0007, 0 ]
+c5 after assignment: [0017, -5 ]
+
+
+
+
+
 Added operators to counter.
 the extraction operator is used to explain extracting Rational
 object. Will not work for counter.
@@ -11,51 +26,5 @@ Problem with
 in main.cpp. Figure out what happened.
 
 
-
-## Name: <ins> your name goes here </ins>
-
-## Features:
-
-- Not Implemented:
-  - what features have been implemented
-
-<br><br>
-
-- Implemented:
-  - what has been implemented
-
-<br><br>
-
-- Partly implemented:
-  - what features have not been implemented
-
-<br><br>
-
-- Bugs
-  - Known bugs
-
-<br><br>
-
-# Reflections:
-
-- Any thoughts you may have and would like to share.
-
-# **output**
-<pre>
-<br/><br/><br/><br/>
-## Delete this line and paste the output of your basic test and then testB here
-</pre>
-
-
-<br/><br/>
-
-# basic_test.cpp output:
-<pre>
-<br/><br/><br/><br/>
-</pre>
-# testB.cpp output:
-<pre>
-<br/><br/><br/><br/>
-</pre>
 
 
