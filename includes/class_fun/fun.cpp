@@ -14,10 +14,23 @@
     bool debug = false;
     if (debug)
       cout << "Counter("<<c<<") fired" << endl;
+    
     //blank!
   }
 
+  Counter::Counter(char* name, int c):_count(c),_error(0){
+    bool debug = false;
+    if (debug)
+      cout << "Counter("<<c<<") fired" << endl;
+    //_name = name;
+    _name = new char[INT_MAX];
+    strcpy(_name, name);
+    }
 
+  Counter::~Counter(){
+    cout << "~Counter() fired!" << endl;
+    delete[] _name;
+  }
   //mutators:
   void Counter::inc(){
     bool debug = false;
@@ -114,7 +127,7 @@ Counter operator*(const Counter &left, int m){
 
 ostream& operator<<(ostream& outs, const Counter& c){
 
-  outs << '['<<setw(4)<<setfill('0')<<c._count<<", "<<c._error<<" ]";
+  outs << '{'<<c._name<<": "<<'['<<setw(4)<<setfill('0')<<c._count<<", "<<c._error<<" ] } ";
   return outs;
 }
 

@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <limits>
+
 using namespace std;
 
 
@@ -11,7 +13,10 @@ public:
   //ctors:
   Counter();
   Counter(int c);
-  //mutators:
+  Counter(char *name,int c);
+
+  ~Counter();
+  // mutators:
   void inc();
   void dec();
   void add(Counter other);
@@ -28,6 +33,7 @@ public:
   void print();
 
 private:
+  char *_name;
   int _count;
   int _error;
 };

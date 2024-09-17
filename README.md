@@ -3,6 +3,9 @@
 # Work Report
 The Big 3 Lecture:
 
+Destructor explained.
+
+
 shows default copy ctor and assignment operator:
 bogus(): i: 6,j: 12
 enter c1: 17, -5

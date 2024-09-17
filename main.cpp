@@ -6,12 +6,44 @@ void operators();
 void print_counters(Counter c1, Counter c2);
 void fun_with_classes();
 void bogus();
+void default_ctor_assign();
 using namespace std;
-
+int main_TEST(){
+    int scores[100] = {90, 95, 97};
+    cout << "here are the scores: " << scores << endl;
+    char name[25];
+    cout << ":";
+    cin >> name;
+    cout << name << endl;
+    ;
+}
 int main(int argv, char **argc)
 {
     cout << "\n\n"<< endl;
+    int i = 0;
+    {
+        Counter c5("c5", 5);
+        cout << c5 << endl;
+    }
+    // while (i++ < INT_MAX)
+    // {
+    //      // crashes with no destructor
+    //     {
+    //     Counter c1("c1", 10);
+    //     Counter c2("c2", 5);
+    //     bogus();
+    //     cout <<"("<<i<<"/"<<INT_MAX<<") " << c1 << "  " << c2 << endl;
+    //     }
+    // }
+    //----------------
+    Counter c6;
+    cout << "\n\n\n=====================" << endl;
+    return 0;
+}
 
+
+
+void default_ctor_assign(){
 
     Counter c1(10);
     Counter c2(5);
@@ -36,11 +68,8 @@ int main(int argv, char **argc)
     cout << "c5: " << c5 << endl;
     c5 = c1;
     cout << "c5 after assignment: " << c5 << endl;
-    //----------------
-    cout << "\n\n\n=====================" << endl;
-    return 0;
-}
 
+}
 void bogus(){
     int i = 6;
     int j = 12;
