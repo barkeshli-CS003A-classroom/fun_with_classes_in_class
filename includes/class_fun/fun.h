@@ -11,14 +11,16 @@ using namespace std;
 class Counter{
 public:
   //ctors:
-  Counter();
+  Counter();                      //default CTOR
   Counter(int c);
   Counter(char *name,int c);
-
-  ~Counter();
+  Counter(const Counter &other);  //copy CTOR
+  ~Counter();                     //Destructor
+  Counter &operator=(const Counter &RHS);
   // mutators:
   void inc();
   void dec();
+  void set_name(char* name);
   void add(Counter other);
   Counter add(const Counter &left, const Counter &right);
   friend Counter add(const Counter &left, const Counter &right);

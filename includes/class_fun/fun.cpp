@@ -27,11 +27,29 @@
     strcpy(_name, name);
     }
 
+  Counter::Counter(const Counter &other){
+    cout << "Copy CTOR CALLED" << endl;
+    _count = other._count;
+    _error = other._error;
+    _name = new char[INT_MAX];
+    strcpy(_name, other._name);
+  }
+
   Counter::~Counter(){
     cout << "~Counter() fired!" << endl;
     delete[] _name;
   }
-  //mutators:
+  
+  Counter &Counter::operator=(const Counter &RHS){
+    _count = RHS._count;
+    _error = RHS._error;
+    _name = new char[INT_MAX];
+    strcpy(_name, RHS._name);
+
+    return *this;
+  }
+
+    //mutators:
   void Counter::inc(){
     bool debug = false;
     if (debug)
@@ -44,7 +62,9 @@
       cout << "Counter::dec() fired" << endl;
     _count--;
   }
-
+  void Counter::set_name(char* name){
+    strcpy(_name, name);
+  }
   //accessors:
   int Counter::count(){
     bool debug = false;
@@ -58,6 +78,8 @@
       cout << "print() fired" << endl;
     cout <<setw(3)<< _count<<" ";
   }
+
+
 //================ add() variations: ====================================
 
   void Counter::add(Counter other){

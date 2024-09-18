@@ -7,42 +7,68 @@ void print_counters(Counter c1, Counter c2);
 void fun_with_classes();
 void bogus();
 void default_ctor_assign();
+void pass_object(Counter c);
+void force_destructor();
+
 using namespace std;
-int main_TEST(){
-    int scores[100] = {90, 95, 97};
-    cout << "here are the scores: " << scores << endl;
-    char name[25];
-    cout << ":";
-    cin >> name;
-    cout << name << endl;
-    ;
-}
+
+
 int main(int argv, char **argc)
 {
-    cout << "\n\n"<< endl;
+
+    Counter c1("c1", 10);
+    Counter c2("c2", 5);
     int i = 0;
+    while (i++ < INT_MAX)
     {
-        Counter c5("c5", 5);
-        cout << c5 << endl;
+         // crashes with no destructor
+        {
+            c1 = c2;
+            cout << "(" << i << "/" << INT_MAX << ") " << c1 << "  " << c2 << endl;
+        }
     }
-    // while (i++ < INT_MAX)
-    // {
-    //      // crashes with no destructor
-    //     {
-    //     Counter c1("c1", 10);
-    //     Counter c2("c2", 5);
-    //     bogus();
-    //     cout <<"("<<i<<"/"<<INT_MAX<<") " << c1 << "  " << c2 << endl;
-    //     }
-    // }
-    //----------------
-    Counter c6;
+
     cout << "\n\n\n=====================" << endl;
     return 0;
 }
+void assign_copy_ctor(){
+    Counter c5("c5", 11);   //c5: //["X6000", 11]
+    // Counter c6(c5);         //c6: //["X6000", 11]
+    Counter c6 = c5;
+    cout << "c5: " << c5 << endl;
+    cout << "c6" << c6 << endl;
+    c6 = c5;    //assignment: NOT COPY CTOR!
+    cout << "c5: " << c5 << endl;
+    cout << "c6" << c6 << endl;
+
+}
+
+void pass_object(Counter c){
+    cout << "pass_object(" << c << ")" << endl;
+}
 
 
-
+void force_destructor(){
+    cout << "\n\n"<< endl;
+    int i = 0;
+    // {
+    //     Counter c5("c5", 5);
+    //     cout << c5 << endl;
+    // }
+    while (i++ < INT_MAX)
+    {
+         // crashes with no destructor
+        {
+        Counter c1("c1", 10);
+        Counter c2("c2", 5);
+        bogus();
+        cout <<"("<<i<<"/"<<INT_MAX<<") " << c1 << "  " << c2 << endl;
+        }
+    }
+    //----------------
+    Counter c6;
+    
+}
 void default_ctor_assign(){
 
     Counter c1(10);
@@ -146,4 +172,15 @@ void fun_with_classes(){
     c1.dec();
     c2.dec();
     print_counters(c1, c2);
+}
+
+int int_and_char_arrays(){
+    int scores[100] = {90, 95, 97};
+    cout << "here are the scores: " << scores << endl;
+    char name[25];
+    cout << ":";
+    cin >> name;
+    cout << name << endl;
+    ;
+    return 0;
 }
