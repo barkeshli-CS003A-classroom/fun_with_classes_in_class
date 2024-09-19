@@ -9,12 +9,29 @@ void bogus();
 void default_ctor_assign();
 void pass_object(Counter c);
 void force_destructor();
-
+void change_here(Counter& counter, int i, char c);
+void whats_here(const Counter& counter, int i);
 using namespace std;
-
 
 int main(int argv, char **argc)
 {
+    Counter c("abcdef", 5);
+    cout << c << endl;
+    change_here(c, 2, 'z');
+    cout << c << endl;
+
+    cout << "\n\n\n=====================" << endl;
+    return 0;
+}
+void whats_here(const Counter& counter, int i){
+    cout << counter[i] << endl;
+}
+void change_here(Counter& counter, int i, char c){
+
+    cout<< "c at position "<<i<< " is "<< counter[i] << endl;
+    counter[i] = c;
+}
+void bracket_at(){
     Counter c("ABCDE", 4);
     cout << c << endl;
     cout << "c at 0: " << c[0] << endl;
@@ -24,8 +41,7 @@ int main(int argv, char **argc)
     c.at(1) = 'b';
     c[3] = 'd';
     cout << c << endl;
-    cout << "\n\n\n=====================" << endl;
-    return 0;
+
 }
 void assignment(){
     Counter c1("c1", 10);

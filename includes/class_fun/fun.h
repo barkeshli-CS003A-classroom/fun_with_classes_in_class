@@ -37,6 +37,16 @@ public:
   
   char& operator[](int index){
     assert(index < strlen(_name) && "index cannot be larger than strig length");
+    at(1) = at(1);  //I can make changes to the object from here
+
+    return _name[index];
+  }
+  char operator[](int index) const{
+    assert(index < strlen(_name) && "index cannot be larger than strig length");
+    /*
+    error: 'this' argument to member function 'at' has type 'const Counter', but function is not marked const
+    at(1) = at(1); //I cannot make changes to the object because of const
+    */
     return _name[index];
   }
   char& at(int index){

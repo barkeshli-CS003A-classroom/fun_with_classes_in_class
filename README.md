@@ -1,6 +1,14 @@
 ## Name: <ins> Barkeshli </ins>
 
 # Work Report
+Implemented the big three:
+    assignment operator: with self assignment check.
+implemented at and []
+explained return by reference
+showed application of assert
+
+
+
 The Big 3 Lecture:
 
 Destructor explained.
