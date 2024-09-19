@@ -19,11 +19,12 @@ int main(int argv, char **argc)
     Counter c1("c1", 10);
     Counter c2("c2", 5);
     int i = 0;
+    c1 = c1;            //self assignment
     while (i++ < INT_MAX)
     {
          // crashes with no destructor
         {
-            c1 = c2;
+            c1 = c2;                //repeated assignment test...
             cout << "(" << i << "/" << INT_MAX << ") " << c1 << "  " << c2 << endl;
         }
     }

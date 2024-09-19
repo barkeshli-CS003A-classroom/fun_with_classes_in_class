@@ -26,14 +26,7 @@
     _name = new char[INT_MAX];
     strcpy(_name, name);
     }
-
-  Counter::Counter(const Counter &other){
-    cout << "Copy CTOR CALLED" << endl;
-    _count = other._count;
-    _error = other._error;
-    _name = new char[INT_MAX];
-    strcpy(_name, other._name);
-  }
+//====================== BIG THREE =====================================
 
   Counter::~Counter(){
     cout << "~Counter() fired!" << endl;
@@ -41,6 +34,18 @@
   }
   
   Counter &Counter::operator=(const Counter &RHS){
+
+    /*
+      Counter c1;
+      Counter c2(4);
+      c1 = c2; //c1 exists before this line
+      c1(c2);  //can this be done?
+    */
+   if (this == &RHS){
+     return *this;
+   }
+    delete[] _name; //clean up the allocated space
+    // allocate new space;
     _count = RHS._count;
     _error = RHS._error;
     _name = new char[INT_MAX];
@@ -48,6 +53,20 @@
 
     return *this;
   }
+
+  Counter::Counter(const Counter &other){
+    /*
+      Counter c1(4);
+      Counter c2 = c1;
+      Counter c3(c1);
+    */
+    cout << "Copy CTOR CALLED" << endl;
+    _count = other._count;
+    _error = other._error;
+    _name = new char[INT_MAX];
+    strcpy(_name, other._name);
+  }
+
 
     //mutators:
   void Counter::inc(){
@@ -148,7 +167,19 @@ Counter operator*(const Counter &left, int m){
 
 
 ostream& operator<<(ostream& outs, const Counter& c){
+  /*
+    ostream cout; //in std namespace
 
+    cout<<c;
+    operator <<(cout, c);
+    operator <<(ostream&, Counter)
+    ---------
+    x();
+    cout<<"======"<<endl;
+    y = x();
+    cout<<"======"<<endl;
+
+  */
   outs << '{'<<c._name<<": "<<'['<<setw(4)<<setfill('0')<<c._count<<", "<<c._error<<" ] } ";
   return outs;
 }

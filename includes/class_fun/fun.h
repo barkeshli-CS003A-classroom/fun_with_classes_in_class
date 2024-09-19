@@ -22,7 +22,12 @@ public:
   void dec();
   void set_name(char* name);
   void add(Counter other);
+  
+  //c1.add(c1, c2)
   Counter add(const Counter &left, const Counter &right);
+  
+
+  
   friend Counter add(const Counter &left, const Counter &right);
   friend Counter operator+(const Counter &left, const Counter &right);
   friend Counter operator-(const Counter &left, const Counter &right);
