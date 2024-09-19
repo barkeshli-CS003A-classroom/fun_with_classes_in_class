@@ -15,7 +15,19 @@ using namespace std;
 
 int main(int argv, char **argc)
 {
-
+    Counter c("ABCDE", 4);
+    cout << c << endl;
+    cout << "c at 0: " << c[0] << endl;
+    cout << "c at 3: " << c[3] << endl;
+    //test assert: 
+    //cout << "c at 30: " << c[30] << endl;
+    c.at(1) = 'b';
+    c[3] = 'd';
+    cout << c << endl;
+    cout << "\n\n\n=====================" << endl;
+    return 0;
+}
+void assignment(){
     Counter c1("c1", 10);
     Counter c2("c2", 5);
     int i = 0;
@@ -28,9 +40,6 @@ int main(int argv, char **argc)
             cout << "(" << i << "/" << INT_MAX << ") " << c1 << "  " << c2 << endl;
         }
     }
-
-    cout << "\n\n\n=====================" << endl;
-    return 0;
 }
 void assign_copy_ctor(){
     Counter c5("c5", 11);   //c5: //["X6000", 11]

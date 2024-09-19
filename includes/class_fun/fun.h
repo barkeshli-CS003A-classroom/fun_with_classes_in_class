@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
-
+#include <cassert>
 using namespace std;
 
 
@@ -35,6 +35,14 @@ public:
   friend ostream& operator<<(ostream& outs, const Counter& c);
   friend istream& operator>>(istream& ins, Counter& c);
   
+  char& operator[](int index){
+    assert(index < strlen(_name) && "index cannot be larger than strig length");
+    return _name[index];
+  }
+  char& at(int index){
+    assert(index < strlen(_name));
+    return _name[index];
+  }
   // accessors:
   int count();
   void print();
